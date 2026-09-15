@@ -574,6 +574,12 @@ function atualizarTelaConformeModo() {
   if (estado.modo === "traduzir" && estado.exercicioTraducao === null) novaTraducao();
 }
 
+elementos.switchSeguir.addEventListener("change", () => {
+  if (elementos.switchSeguir.checked && estado.indiceAtual >= 0) {
+    mostrarTraducaoDaLinha(estado.indiceAtual);
+  }
+});
+
 elementos.campoBusca.addEventListener("input", renderizarListaMusicas);
 elementos.botaoMusicaAleatoria.addEventListener("click", alternarMusicaAleatoria);
 

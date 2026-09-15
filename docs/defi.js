@@ -1,4 +1,15 @@
 (function () {
+  function formatarDocumento(texto) {
+    if (!texto) return "";
+    const partes = texto
+      .replace(/«/g, "\n«")
+      .replace(/»/g, "»\n")
+      .split("\n")
+      .map((p) => p.trim())
+      .filter(Boolean);
+    return partes.map((p) => p.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]))).join("<br><br>");
+  }
+
   const curso = window.CURSO_DEFI || [];
   const chaveProgresso = "songlingo-defi-progresso";
   const progresso = new Set(JSON.parse(localStorage.getItem(chaveProgresso) || "[]"));
@@ -94,7 +105,7 @@
     el.tema.textContent = unidade.tema;
     el.titulo.textContent = unidade.titulo;
     el.documentoTitulo.textContent = unidade.documentoTitulo;
-    el.documento.textContent = unidade.documento;
+    el.documento.innerHTML = formatarDocumento(unidade.documento);
     el.ferramentaTitulo.textContent = unidade.ferramentaTitulo;
     el.ferramenta.textContent = unidade.ferramenta;
     renderizarLista();
