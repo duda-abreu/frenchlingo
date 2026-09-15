@@ -1,13 +1,16 @@
 (function () {
   function formatarDocumento(texto) {
     if (!texto) return "";
-    const partes = texto
-      .replace(/«/g, "\n«")
-      .replace(/»/g, "»\n")
-      .split("\n")
-      .map((p) => p.trim())
-      .filter(Boolean);
-    return partes.map((p) => p.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]))).join("<br><br>");
+    const escapar = (valor) => valor.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+    return texto
+      .split(/(«[^»]*»)/g)
+      .map((parte) => parte.trim())
+      .filter(Boolean)
+      .map((parte) => {
+        const classe = parte.startsWith("«") ? "documento-linha documento-fala" : "documento-linha";
+        return `<span class="${classe}">${escapar(parte)}</span>`;
+      })
+      .join("");
   }
 
   const curso = window.CURSO_DEFI || [];

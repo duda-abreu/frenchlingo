@@ -214,20 +214,38 @@ function montarJanelaLetra() {
     elementos.janelaLetra.appendChild(div);
   });
 
-  const atual = elementos.janelaLetra.querySelector(".atual");
-  if (atual) {
-    const caixaContainer = elementos.janelaLetra.getBoundingClientRect();
-    const caixaAtual = atual.getBoundingClientRect();
-    const deslocamento = (caixaAtual.top - caixaContainer.top) - caixaContainer.height / 2 + caixaAtual.height / 2;
-    elementos.janelaLetra.scrollTop = Math.max(0, elementos.janelaLetra.scrollTop + deslocamento);
-  }
+  requestAnimationFrame(() => atualizarLinhaAtual(true));
+}
+
+function atualizarLinhaAtual(rolar = false) {
+  const linhas = elementos.janelaLetra.querySelectorAll(".linha-letra");
+  linhas.forEach((linha, indice) => {
+    const atual = indice === estado.indiceAtual;
+    linha.classList.toggle("atual", atual);
+    if (atual) linha.setAttribute("aria-current", "true");
+    else linha.removeAttribute("aria-current");
+  });
+
+  if (!rolar || estado.modo !== "ouvir" || estado.indiceAtual < 0) return;
+  const atual = linhas[estado.indiceAtual];
+  if (!atual) return;
+
+  const caixaContainer = elementos.janelaLetra.getBoundingClientRect();
+  const caixaAtual = atual.getBoundingClientRect();
+  const destino = elementos.janelaLetra.scrollTop
+    + caixaAtual.top - caixaContainer.top
+    - elementos.janelaLetra.clientHeight / 2
+    + caixaAtual.height / 2;
+  elementos.janelaLetra.scrollTo({ top: Math.max(0, destino), behavior: "smooth" });
 }
 
 function irParaLinha(indice) {
   const linha = estado.musicaSelecionada.linhas[indice];
+  estado.indiceAtual = indice;
   if (elementos.audio.src) {
     elementos.audio.currentTime = linha.tempo;
   }
+  atualizarLinhaAtual(true);
   mostrarTraducaoDaLinha(indice);
 }
 
@@ -605,11 +623,20 @@ elementos.audio.addEventListener("timeupdate", () => {
   const novoIndice = encontrarIndiceDaLinhaAtual(musica.linhas, elementos.audio.currentTime);
   if (novoIndice !== estado.indiceAtual) {
     estado.indiceAtual = novoIndice;
-    atualizarTelaConformeModo();
+    if (estado.modo === "ouvir") atualizarLinhaAtual(true);
     if (estado.modo === "ouvir" && elementos.switchSeguir.checked && novoIndice >= 0) {
       mostrarTraducaoDaLinha(novoIndice);
     }
   }
+});
+
+elementos.audio.addEventListener("seeked", () => {
+  const musica = estado.musicaSelecionada;
+  if (!musica) return;
+  const novoIndice = encontrarIndiceDaLinhaAtual(musica.linhas, elementos.audio.currentTime);
+  estado.indiceAtual = novoIndice;
+  if (estado.modo === "ouvir") atualizarLinhaAtual(true);
+  if (elementos.switchSeguir.checked && novoIndice >= 0) mostrarTraducaoDaLinha(novoIndice);
 });
 
 elementos.botoesModo.forEach((botao) => {

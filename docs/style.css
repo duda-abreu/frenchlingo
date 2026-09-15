@@ -231,9 +231,13 @@ button.botao-arquivo { font-family: inherit; }
 }
 
 .janela-letra {
-  min-height: 260px;
-  max-height: 420px;
-  overflow-y: auto;
+  height: clamp(280px, 52vh, 480px);
+  min-height: 280px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+  overscroll-behavior: contain;
+  scroll-padding-block: 42%;
   scroll-behavior: smooth;
   display: flex;
   flex-direction: column;
@@ -242,9 +246,15 @@ button.botao-arquivo { font-family: inherit; }
   padding: 20px;
 }
 
+.janela-letra::-webkit-scrollbar { width: 10px; }
+.janela-letra::-webkit-scrollbar-track { background: transparent; }
+.janela-letra::-webkit-scrollbar-thumb { background: var(--cartao-claro); border-radius: 999px; }
+
 .linha-letra {
   cursor: pointer;
   text-align: center;
+  width: min(100%, 760px);
+  box-sizing: border-box;
   padding: 6px 12px;
   border-radius: 10px;
   font-size: 18px;
@@ -257,6 +267,7 @@ button.botao-arquivo { font-family: inherit; }
   font-size: 22px;
   font-weight: 700;
   color: var(--destaque);
+  background: var(--cartao-claro);
 }
 
 .cartao {
@@ -653,6 +664,14 @@ button.botao-arquivo { font-family: inherit; }
 
 .documento-defi h4, .caixa-ferramentas-defi h4, .atividade-defi h4 { margin: 4px 0 10px; font-family: "Baloo 2", sans-serif; font-size: 20px; }
 .documento-defi p { margin: 0; line-height: 1.85; font-size: 15px; }
+.documento-linha { display: block; margin-top: 8px; }
+.documento-linha:first-child { margin-top: 0; }
+.documento-fala {
+  padding: 8px 12px;
+  border-left: 3px solid var(--destaque);
+  background: var(--cartao-claro);
+  border-radius: 0 10px 10px 0;
+}
 
 .caixa-ferramentas-defi {
   display: grid;
