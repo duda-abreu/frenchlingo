@@ -234,6 +234,7 @@ button.botao-arquivo { font-family: inherit; }
   min-height: 260px;
   max-height: 420px;
   overflow-y: auto;
+  scroll-behavior: smooth;
   display: flex;
   flex-direction: column;
   align-items: center;

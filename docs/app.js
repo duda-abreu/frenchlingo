@@ -215,7 +215,10 @@ function montarJanelaLetra() {
   });
 
   const atual = elementos.janelaLetra.querySelector(".atual");
-  if (atual) atual.scrollIntoView({ block: "center", behavior: "smooth" });
+  if (atual) {
+    const alvo = atual.offsetTop - elementos.janelaLetra.clientHeight / 2 + atual.clientHeight / 2;
+    elementos.janelaLetra.scrollTop = Math.max(0, alvo);
+  }
 }
 
 function irParaLinha(indice) {
