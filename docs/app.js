@@ -216,8 +216,10 @@ function montarJanelaLetra() {
 
   const atual = elementos.janelaLetra.querySelector(".atual");
   if (atual) {
-    const alvo = atual.offsetTop - elementos.janelaLetra.clientHeight / 2 + atual.clientHeight / 2;
-    elementos.janelaLetra.scrollTop = Math.max(0, alvo);
+    const caixaContainer = elementos.janelaLetra.getBoundingClientRect();
+    const caixaAtual = atual.getBoundingClientRect();
+    const deslocamento = (caixaAtual.top - caixaContainer.top) - caixaContainer.height / 2 + caixaAtual.height / 2;
+    elementos.janelaLetra.scrollTop = Math.max(0, elementos.janelaLetra.scrollTop + deslocamento);
   }
 }
 
