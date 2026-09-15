@@ -204,18 +204,18 @@ function montarJanelaLetra() {
   if (!musica) return;
 
   const linhas = musica.linhas;
-  const centro = estado.indiceAtual >= 0 ? estado.indiceAtual : 0;
-  const janela = 3;
-  const inicio = Math.max(0, centro - janela);
-  const fim = Math.min(linhas.length, centro + janela + 1);
 
-  for (let i = inicio; i < fim; i++) {
+  linhas.forEach((linha, i) => {
     const div = document.createElement("div");
     div.className = "linha-letra" + (i === estado.indiceAtual ? " atual" : "");
-    div.textContent = linhas[i].fr;
+    div.textContent = linha.fr;
+    div.dataset.indice = i;
     div.addEventListener("click", () => irParaLinha(i));
     elementos.janelaLetra.appendChild(div);
-  }
+  });
+
+  const atual = elementos.janelaLetra.querySelector(".atual");
+  if (atual) atual.scrollIntoView({ block: "center", behavior: "smooth" });
 }
 
 function irParaLinha(indice) {

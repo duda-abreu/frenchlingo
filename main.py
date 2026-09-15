@@ -184,11 +184,8 @@ async def main(pagina: ft.Page):
     )
 
     coluna_letra = ft.ListView(expand=True, spacing=4, auto_scroll=False, padding=10)
-    coluna_letra_ouvir = ft.Column(
-        expand=True, spacing=6,
-        alignment=ft.MainAxisAlignment.CENTER,
-        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-        visible=False,
+    coluna_letra_ouvir = ft.ListView(
+        expand=True, spacing=6, auto_scroll=False, padding=10, visible=False,
     )
     coluna_palavras_aprendidas = ft.ListView(expand=True, spacing=4, auto_scroll=False, padding=10)
 
@@ -662,12 +659,8 @@ async def main(pagina: ft.Page):
 
         if estado["modo"] == MODO_OUVIR:
             coluna_letra_ouvir.controls.clear()
-            centro = estado["indice_linha_atual"] if estado["indice_linha_atual"] >= 0 else 0
-            janela = 3
-            inicio = max(0, centro - janela)
-            fim = min(len(linhas), centro + janela + 1)
-            for indice in range(inicio, fim):
-                coluna_letra_ouvir.controls.append(montar_linha_modo_ouvir(indice, linhas[indice]))
+            for indice, linha in enumerate(linhas):
+                coluna_letra_ouvir.controls.append(montar_linha_modo_ouvir(indice, linha))
         elif estado["modo"] == MODO_ESTUDAR:
             coluna_letra.controls.clear()
             for indice, linha in enumerate(linhas):
@@ -891,8 +884,11 @@ async def main(pagina: ft.Page):
             estado["indice_linha_atual"] = novo_indice
             atualizar_letra_na_tela()
 
-            if estado["modo"] == MODO_OUVIR and switch_seguir_letra.value:
-                mostrar_traducao_da_linha(novo_indice)
+            if estado["modo"] == MODO_OUVIR:
+                if novo_indice >= 0:
+                    await coluna_letra_ouvir.scroll_to(key=str(novo_indice), duration=300)
+                if switch_seguir_letra.value:
+                    mostrar_traducao_da_linha(novo_indice)
 
             pagina.update()
 

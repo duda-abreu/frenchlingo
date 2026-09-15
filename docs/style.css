@@ -232,10 +232,11 @@ button.botao-arquivo { font-family: inherit; }
 
 .janela-letra {
   min-height: 260px;
+  max-height: 420px;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 10px;
   padding: 20px;
 }
