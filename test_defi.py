@@ -2,7 +2,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from defi_desktop import PainelDefi
+from defi_desktop import PainelDefi, _partes_documento
 
 
 class PaginaTeste:
@@ -58,7 +58,7 @@ class DefiTest(unittest.TestCase):
                         check.value = True
                     painel._conferir()
                     self.assertIn(painel._chave(), painel.concluidas)
-        self.assertEqual(sum(len(u["atividades"]) for u in painel.curso), 171)
+        self.assertEqual(sum(len(u["atividades"]) for u in painel.curso), 207)
 
     def test_ocultar_resposta_reabilita_nova_tentativa(self):
         self.painel.opcao_selecionada = 1
@@ -68,6 +68,22 @@ class DefiTest(unittest.TestCase):
         self.assertFalse(self.painel.gabarito.visible)
         self.assertTrue(self.painel.botao_conferir.visible)
         self.assertIsNone(self.painel.opcao_selecionada)
+
+    def test_documento_separa_falas_em_linhas(self):
+        partes = _partes_documento(
+            "La serveuse demande : « Vous avez choisi ? » Camille répond : « Oui. » Fin."
+        )
+        self.assertEqual(5, len(partes))
+        self.assertEqual(2, sum(eh_fala for _, eh_fala in partes))
+        self.assertEqual("« Vous avez choisi ? »", partes[1][0])
+
+        self.painel.unidade_atual = next(
+            indice for indice, unidade in enumerate(self.painel.curso)
+            if unidade["titulo"] == "Au restaurant"
+        )
+        self.painel._renderizar(atualizar=False)
+        self.assertEqual(7, len(self.painel.documento_texto.controls))
+        self.assertEqual(3, sum(controle.bgcolor is not None for controle in self.painel.documento_texto.controls))
 
 
 if __name__ == "__main__":

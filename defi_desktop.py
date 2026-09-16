@@ -1,6 +1,7 @@
 import json
 import os
 import random
+import re
 import subprocess
 import threading
 import unicodedata
@@ -18,6 +19,14 @@ def _normalizar(texto: str) -> str:
     valor = unicodedata.normalize("NFD", (texto or "").lower())
     valor = "".join(letra for letra in valor if unicodedata.category(letra) != "Mn")
     return " ".join("".join(letra if letra.isalnum() else " " for letra in valor).split())
+
+
+def _partes_documento(texto: str) -> list[tuple[str, bool]]:
+    return [
+        (parte, parte.startswith("«") and parte.endswith("»"))
+        for parte in (trecho.strip() for trecho in re.split(r"(«[^»]*»)", texto or ""))
+        if parte
+    ]
 
 
 def _distancia(a: str, b: str) -> int:
@@ -87,7 +96,7 @@ class PainelDefi:
         self.lista_unidades = ft.Column(spacing=8, col={"xs": 12, "md": 3})
 
         self.documento_titulo = ft.Text(size=19, font_family=FONTE_TITULO, weight=ft.FontWeight.W_600)
-        self.documento_texto = ft.Text(size=15)
+        self.documento_texto = ft.Column(spacing=8)
         self.ferramenta_titulo = ft.Text(size=18, font_family=FONTE_TITULO, weight=ft.FontWeight.W_600)
         self.ferramenta_texto = ft.Text(size=14, color=self.cor("texto_secundario"))
         self.tipo_atividade = ft.Text(size=11, weight=ft.FontWeight.BOLD, color=self.cor("destaque"))
@@ -187,6 +196,18 @@ class PainelDefi:
                 horizontal_alignment=ft.CrossAxisAlignment.STRETCH,
             ),
         )
+
+    def _renderizar_documento(self, texto: str):
+        self.documento_texto.controls = [
+            ft.Container(
+                content=ft.Text(parte, size=15),
+                padding=ft.Padding.symmetric(horizontal=12, vertical=8) if eh_fala else None,
+                bgcolor=self.cor("cartao_claro") if eh_fala else None,
+                border=ft.Border.only(left=ft.BorderSide(3, self.cor("destaque"))) if eh_fala else None,
+                border_radius=10 if eh_fala else None,
+            )
+            for parte, eh_fala in _partes_documento(texto)
+        ]
     def _chave(self, unidade: int | None = None, atividade: int | None = None) -> str:
         unidade = self.unidade_atual if unidade is None else unidade
         atividade = self.atividade_atual if atividade is None else atividade
@@ -291,7 +312,7 @@ class PainelDefi:
         self.titulo.value = unidade["titulo"]
         self.estado_unidade.value = "✓ atelier concluído" if self._unidade_concluida(self.unidade_atual) else "em andamento"
         self.documento_titulo.value = unidade["documentoTitulo"]
-        self.documento_texto.value = unidade["documento"]
+        self._renderizar_documento(unidade["documento"])
         self.ferramenta_titulo.value = unidade["ferramentaTitulo"]
         self.ferramenta_texto.value = unidade["ferramenta"]
         total = sum(len(item["atividades"]) for item in self.curso)

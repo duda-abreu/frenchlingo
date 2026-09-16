@@ -185,7 +185,12 @@ async def main(pagina: ft.Page):
 
     coluna_letra = ft.ListView(expand=True, spacing=4, auto_scroll=False, padding=10)
     coluna_letra_ouvir = ft.ListView(
-        expand=True, spacing=6, auto_scroll=False, padding=10, visible=False,
+        expand=True,
+        spacing=6,
+        auto_scroll=False,
+        scroll=ft.ScrollMode.ALWAYS,
+        padding=10,
+        visible=False,
     )
     coluna_palavras_aprendidas = ft.ListView(expand=True, spacing=4, auto_scroll=False, padding=10)
 
@@ -418,7 +423,7 @@ async def main(pagina: ft.Page):
         atualizar_lista_de_palavras_aprendidas()
         pagina.update()
 
-    def mostrar_traducao_da_linha(indice: int):
+    def mostrar_traducao_da_linha(indice: int, atualizar_pagina: bool = True):
         if estado["musica_selecionada"] is None:
             return
 
@@ -438,8 +443,9 @@ async def main(pagina: ft.Page):
                 ft.Row([ft.Text("en", size=13, font_family=FONTE_CORPO, color=cor("destaque"), weight=ft.FontWeight.BOLD), ft.Text(linha.get("en", ""), size=18, font_family=FONTE_CORPO, color=cor("texto_principal"), expand=True)]),
             ],
         )
-        atualizar_letra_na_tela()
-        pagina.update()
+        atualizar_destaques_letra_ouvir()
+        if atualizar_pagina:
+            pagina.update()
 
     campo_resposta = ft.TextField(label="sua tradução", autofocus=True)
     texto_feedback_dialogo = ft.Text("", size=14)
@@ -604,6 +610,15 @@ async def main(pagina: ft.Page):
             ink=True,
             animate=200,
         )
+
+    def atualizar_destaques_letra_ouvir():
+        for indice, controle in enumerate(coluna_letra_ouvir.controls):
+            eh_linha_atual = indice == estado["indice_linha_atual"]
+            eh_linha_selecionada = indice == estado["linha_selecionada"]
+            controle.content.size = 21 if eh_linha_atual else 18
+            controle.content.weight = ft.FontWeight.BOLD if eh_linha_atual else ft.FontWeight.NORMAL
+            controle.content.color = cor("destaque") if eh_linha_atual else cor("texto_principal")
+            controle.bgcolor = cor("cartao_claro") if eh_linha_atual or eh_linha_selecionada else None
 
     def montar_linha_modo_estudar(indice: int, linha: dict):
         eh_linha_atual = indice == estado["indice_linha_atual"]
@@ -882,15 +897,15 @@ async def main(pagina: ft.Page):
 
         if novo_indice != estado["indice_linha_atual"]:
             estado["indice_linha_atual"] = novo_indice
-            atualizar_letra_na_tela()
 
             if estado["modo"] == MODO_OUVIR:
-                if novo_indice >= 0:
-                    await coluna_letra_ouvir.scroll_to(key=str(novo_indice), duration=300)
                 if switch_seguir_letra.value:
-                    mostrar_traducao_da_linha(novo_indice)
+                    mostrar_traducao_da_linha(novo_indice, atualizar_pagina=False)
+                atualizar_destaques_letra_ouvir()
 
             pagina.update()
+            if estado["modo"] == MODO_OUVIR and novo_indice >= 0:
+                await coluna_letra_ouvir.scroll_to(scroll_key=str(novo_indice), duration=300)
 
     async def buscar_posicao(segundos: float):
         if not tem_audio_carregado():
