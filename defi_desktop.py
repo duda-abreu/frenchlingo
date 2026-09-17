@@ -1,8 +1,10 @@
 import json
+import asyncio
 import os
 import random
 import re
 import subprocess
+import tempfile
 import threading
 import unicodedata
 from pathlib import Path
@@ -392,13 +394,15 @@ class PainelDefi:
         elif atividade.get("pares"):
             self._montar_associacoes(atividade)
         else:
+            eh_lacuna = atividade["tipo"] == "écoute à trous"
             self.campo_resposta = ft.TextField(
-                multiline=True,
-                min_lines=2,
-                max_lines=5,
+                multiline=not eh_lacuna,
+                min_lines=1 if eh_lacuna else 2,
+                max_lines=1 if eh_lacuna else 5,
                 autofocus=False,
                 border_radius=12,
-                hint_text="rédige ta réponse en français" if atividade.get("modelo") else "écrivez en français",
+                hint_text=("écrivez les mots manquants" if eh_lacuna else
+                           ("rédige ta réponse en français" if atividade.get("modelo") else "écrivez en français")),
                 on_submit=None if atividade.get("modelo") else self._conferir,
             )
             self.area_resposta.controls.append(self.campo_resposta)
@@ -475,15 +479,12 @@ class PainelDefi:
         self.feedback.color = self.cor("destaque")
         self.pagina.update()
         def reproduzir():
-            try:
-                sucesso = self._falar_windows(texto)
-            except (OSError, subprocess.TimeoutExpired):
-                sucesso = False
+            sucesso = self._falar_frances(texto)
             self.pagina.run_task(self._finalizar_audio, sucesso)
         threading.Thread(target=reproduzir, daemon=True).start()
 
     async def _finalizar_audio(self, sucesso):
-        self.feedback.value = "Áudio concluído. Pode ouvir novamente." if sucesso else "Não foi possível reproduzir. Verifique se há uma voz francesa instalada no Windows."
+        self.feedback.value = "Áudio concluído. Pode ouvir novamente." if sucesso else "Não foi possível reproduzir. Verifique sua conexão com a internet."
         self.feedback.color = self.cor("destaque") if sucesso else self.cor("erro")
         self.pagina.update()
 
@@ -502,6 +503,43 @@ class PainelDefi:
                                    capture_output=True, timeout=120,
                                    creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
         return resultado.returncode == 0
+
+    @staticmethod
+    def _falar_online(texto: str):
+        import edge_tts
+        import pygame
+
+        caminho = None
+        try:
+            with tempfile.NamedTemporaryFile(suffix=".mp3", delete=False) as arquivo:
+                caminho = Path(arquivo.name)
+            comunicacao = edge_tts.Communicate(texto, "fr-FR-DeniseNeural", rate="-15%")
+            asyncio.run(comunicacao.save(str(caminho)))
+            if not pygame.mixer.get_init():
+                pygame.mixer.init()
+            som = pygame.mixer.Sound(str(caminho))
+            canal = som.play()
+            if canal is None:
+                return False
+            relogio = pygame.time.Clock()
+            while canal.get_busy():
+                relogio.tick(20)
+            return True
+        finally:
+            if caminho:
+                caminho.unlink(missing_ok=True)
+
+    @classmethod
+    def _falar_frances(cls, texto: str):
+        try:
+            if cls._falar_windows(texto):
+                return True
+        except (OSError, subprocess.TimeoutExpired):
+            pass
+        try:
+            return cls._falar_online(texto)
+        except Exception:
+            return False
 
     def _conferir(self, e=None):
         atividade = self.curso[self.unidade_atual]["atividades"][self.atividade_atual]

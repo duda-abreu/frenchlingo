@@ -1,6 +1,7 @@
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from defi_desktop import PainelDefi, _partes_documento
 
@@ -19,6 +20,12 @@ class DefiTest(unittest.TestCase):
 
     def abrir(self):
         return PainelDefi(PaginaTeste(), lambda _: "#888888", caminho_progresso=self.arquivo)
+
+    def test_audio_frances_usa_internet_quando_windows_nao_tem_voz(self):
+        with patch.object(PainelDefi, "_falar_windows", return_value=False), \
+             patch.object(PainelDefi, "_falar_online", return_value=True) as falar_online:
+            self.assertTrue(PainelDefi._falar_frances("Bonjour"))
+            falar_online.assert_called_once_with("Bonjour")
 
     def test_erros_persistem_e_revisao_abre_questao_original(self):
         painel = self.painel
@@ -103,6 +110,22 @@ class DefiTest(unittest.TestCase):
             "En cas de problème",
             "Parler avec les Parisiens",
         }.issubset(titulos))
+
+    def test_atividades_de_audio_sao_compreensao_ou_frase_com_lacuna(self):
+        atividades = [
+            atividade
+            for unidade in self.painel.curso
+            for atividade in unidade["atividades"]
+            if atividade.get("audio") and not atividade.get("oral")
+        ]
+        perguntas = [atividade for atividade in atividades if atividade.get("opcoes")]
+        lacunas = [atividade for atividade in atividades if "___" in atividade["pergunta"]]
+        self.assertEqual(len(atividades), len(perguntas) + len(lacunas))
+        self.assertGreaterEqual(len(perguntas), 10)
+        self.assertGreaterEqual(len(lacunas), 20)
+        for atividade in lacunas:
+            self.assertEqual("écoute à trous", atividade["tipo"])
+            self.assertNotEqual(atividade["audio"], atividade["resposta"])
 
 
 if __name__ == "__main__":

@@ -152,6 +152,9 @@
     el.conferir.hidden = false;
     el.proxima.hidden = true;
     el.resposta.value = "";
+    const ehLacuna = atividade.tipo === "écoute à trous";
+    el.resposta.rows = ehLacuna ? 1 : 3;
+    el.resposta.placeholder = ehLacuna ? "écrivez les mots manquants" : "écrivez en français";
     el.opcoes.innerHTML = "";
     if (atividade.audio) renderizarBotaoEscuta(atividade.audio);
 
