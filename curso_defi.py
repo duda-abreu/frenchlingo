@@ -9,6 +9,7 @@ RAIZ = Path(__file__).resolve().parent
 
 def carregar_curso():
     curso = json.loads((RAIZ / "defi_data.json").read_text(encoding="utf-8"))
+    curso.extend(json.loads((RAIZ / "defi_viagem.json").read_text(encoding="utf-8")))
     pratica = json.loads((RAIZ / "defi_pratica.json").read_text(encoding="utf-8"))
     for unidade in curso:
         # Acrescentar preserva os índices do progresso já salvo no site.

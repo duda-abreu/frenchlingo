@@ -58,7 +58,7 @@ class DefiTest(unittest.TestCase):
                         check.value = True
                     painel._conferir()
                     self.assertIn(painel._chave(), painel.concluidas)
-        self.assertEqual(sum(len(u["atividades"]) for u in painel.curso), 207)
+        self.assertEqual(sum(len(u["atividades"]) for u in painel.curso), 288)
 
     def test_ocultar_resposta_reabilita_nova_tentativa(self):
         self.painel.opcao_selecionada = 1
@@ -84,6 +84,25 @@ class DefiTest(unittest.TestCase):
         self.painel._renderizar(atualizar=False)
         self.assertEqual(7, len(self.painel.documento_texto.controls))
         self.assertEqual(3, sum(controle.bgcolor is not None for controle in self.painel.documento_texto.controls))
+
+    def test_tipo_de_atividade_reserva_largura_fixa_antes_dos_passos(self):
+        self.assertEqual(112, self.painel.caixa_tipo_atividade.width)
+        self.assertIs(self.painel.tipo_atividade, self.painel.caixa_tipo_atividade.content)
+
+    def test_curso_inclui_situacoes_praticas_de_paris(self):
+        titulos = {unidade["titulo"] for unidade in self.painel.curso}
+        self.assertEqual(22, len(self.painel.curso))
+        self.assertTrue({
+            "Arriver à Paris",
+            "Prendre le métro",
+            "Lire les rues et les panneaux",
+            "À la boulangerie et au café",
+            "Faire des achats",
+            "Visiter les musées et monuments",
+            "À la pharmacie",
+            "En cas de problème",
+            "Parler avec les Parisiens",
+        }.issubset(titulos))
 
 
 if __name__ == "__main__":

@@ -1,9 +1,10 @@
 import json
 from pathlib import Path
 
+from curso_defi import carregar_curso
+
 PASTA_MUSICAS = Path(__file__).parent / "musicas"
 PASTA_SITE = Path(__file__).parent / "docs"
-CAMINHO_DEFI = Path(__file__).parent / "defi_data.json"
 
 
 def montar_dados_do_site():
@@ -35,12 +36,7 @@ def montar_dados_do_site():
 
 
 def montar_dados_do_defi():
-    if not CAMINHO_DEFI.exists():
-        print("defi_data.json nao encontrado, pulando.")
-        return
-
-    with open(CAMINHO_DEFI, encoding="utf-8") as arquivo:
-        curso = json.load(arquivo)
+    curso = carregar_curso()
 
     caminho_saida = PASTA_SITE / "defi-data.js"
     with open(caminho_saida, "w", encoding="utf-8") as arquivo:

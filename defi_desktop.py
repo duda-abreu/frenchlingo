@@ -100,6 +100,7 @@ class PainelDefi:
         self.ferramenta_titulo = ft.Text(size=18, font_family=FONTE_TITULO, weight=ft.FontWeight.W_600)
         self.ferramenta_texto = ft.Text(size=14, color=self.cor("texto_secundario"))
         self.tipo_atividade = ft.Text(size=11, weight=ft.FontWeight.BOLD, color=self.cor("destaque"))
+        self.caixa_tipo_atividade = ft.Container(width=112, content=self.tipo_atividade)
         self.passos = ft.Row(spacing=6, wrap=True)
         self.pergunta = ft.Text(size=20, font_family=FONTE_TITULO, weight=ft.FontWeight.W_600)
         self.instrucao = ft.Text(size=13, color=self.cor("texto_secundario"))
@@ -123,7 +124,7 @@ class PainelDefi:
             "activité",
             ft.Column(
                 [
-                    ft.Row([self.tipo_atividade, self.passos], alignment=ft.MainAxisAlignment.SPACE_BETWEEN, wrap=True),
+                    ft.Row([self.caixa_tipo_atividade, self.passos], spacing=12, wrap=False),
                     self.pergunta,
                     self.instrucao,
                     self.area_resposta,

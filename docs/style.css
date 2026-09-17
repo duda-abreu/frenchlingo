@@ -683,11 +683,11 @@ button.botao-arquivo { font-family: inherit; }
 .caixa-ferramentas-defi span { color: #9887ff; font-size: 11px; font-weight: 700; text-transform: uppercase; }
 .caixa-ferramentas-defi p { margin: 0; color: var(--texto-secundario); line-height: 1.7; }
 
-.cabecalho-atividade-defi { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-#tipo-atividade-defi { color: var(--destaque); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+.cabecalho-atividade-defi { display: flex; align-items: center; gap: 12px; }
+#tipo-atividade-defi { width: 112px; flex: 0 0 112px; color: var(--destaque); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
 .instrucao-defi { color: var(--texto-secundario); line-height: 1.6; }
 
-.passos-defi { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.passos-defi { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-start; }
 .passo-defi { width: 10px; height: 10px; padding: 0; border: 1px solid var(--texto-secundario); border-radius: 50%; background: transparent; cursor: pointer; }
 .passo-defi.atual { transform: scale(1.25); border-color: var(--destaque); }
 .passo-defi.feito { border-color: var(--acerto); background: var(--acerto); }

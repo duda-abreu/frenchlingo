@@ -1,0 +1,191 @@
+[
+  {
+    "id": "arrivee_paris",
+    "nivel": "Paris",
+    "tema": "aéroport · gare · transfert",
+    "titulo": "Arriver à Paris",
+    "documentoTitulo": "De l'aéroport au centre",
+    "documento": "À l'aéroport Charles-de-Gaulle, Nora cherche le train pour Paris. Elle demande à un agent : « Bonjour, où puis-je acheter un billet pour le RER B ? » L'agent répond : « Aux distributeurs, juste à droite. Suivez ensuite les panneaux Paris par train. » Nora demande : « Est-ce que ce billet est valable jusqu'à Châtelet ? » L'agent confirme et lui rappelle de garder son ticket jusqu'à la sortie.",
+    "ferramentaTitulo": "billet · aller simple · correspondance · sortie",
+    "ferramenta": "Un aller simple est un trajet sans retour. Une correspondance est un changement de ligne. À Paris, gardez votre ticket ou passe jusqu'à la sortie et vérifiez toujours la destination affichée.",
+    "atividades": [
+      {"tipo":"compréhension","pergunta":"Où Nora achète-t-elle son billet ?","opcoes":["Dans le train","Aux distributeurs","Chez le chauffeur"],"correta":1,"explicacao":"L'agent indique les distributeurs situés à droite."},
+      {"tipo":"lexique","pergunta":"Complète : Je voudrais un ___ simple pour Paris.","respostas":["aller"],"resposta":"aller","explicacao":"Un aller simple ne comprend pas le trajet de retour."},
+      {"tipo":"grammaire","pergunta":"Pose poliment la question avec pouvoir : Où acheter un billet ?","respostas":["Où puis-je acheter un billet","Où est-ce que je peux acheter un billet"],"resposta":"Où puis-je acheter un billet ?","explicacao":"« Puis-je » est une forme polie de « je peux »."},
+      {"tipo":"médiation","pergunta":"Explique à un ami comment rejoindre Paris depuis l'aéroport.","instrucao":"Mentionne le billet, les panneaux et la destination.","modelo":"Achète un billet pour Paris au distributeur, suis les panneaux « Paris par train » et vérifie que le RER va vers le centre.","checklist":["où acheter le billet","quel panneau suivre","vérifier la destination"]},
+      {"tipo":"interaction","pergunta":"Demande un transfert vers ton hôtel.","instrucao":"Demande le moyen de transport, le prix et la durée.","modelo":"Bonjour, quel est le moyen le plus simple pour aller à mon hôtel ? Combien coûte le trajet et combien de temps faut-il ?","checklist":["destination","prix","durée"]},
+      {"tipo":"écoute","pergunta":"Escute e escreva a frase.","audio":"Gardez votre ticket jusqu'à la sortie.","respostas":["Gardez votre ticket jusqu'à la sortie"],"resposta":"Gardez votre ticket jusqu'à la sortie.","explicacao":"« Gardez » é o imperativo formal de garder."},
+      {"tipo":"associations","pergunta":"Relie chaque mot à son sens.","pares":[["un aller simple","só ida"],["un aller-retour","ida e volta"],["une correspondance","baldeação"],["la sortie","saída"]]},
+      {"tipo":"traduction","pergunta":"Traduza: Este trem vai para o centro de Paris?","respostas":["Est-ce que ce train va au centre de Paris","Ce train va au centre de Paris"],"resposta":"Est-ce que ce train va au centre de Paris ?","explicacao":"« Aller à/au » indica o destino."},
+      {"tipo":"mission","pergunta":"Você acabou de chegar a Paris e precisa chegar ao hotel.","instrucao":"Escreva um diálogo curto com um funcionário do aeroporto.","modelo":"— Bonjour, pour aller à Bastille, je prends le RER B ? — Oui, puis changez à Châtelet. — Où puis-je acheter le billet ? — Aux distributeurs à droite.","checklist":["saudação","destino","bilhete","confirmação do trajeto"]}
+    ]
+  },
+  {
+    "id": "metro_paris",
+    "nivel": "Paris",
+    "tema": "métro · RER · bus",
+    "titulo": "Prendre le métro",
+    "documentoTitulo": "Une correspondance à République",
+    "documento": "Dans le métro, Amir lit le plan et hésite. Il demande : « Pour aller à Nation, je prends bien la ligne 9 direction Mairie de Montreuil ? » Une voyageuse répond : « Oui, mais aujourd'hui la ligne est interrompue entre République et Oberkampf. Prenez la ligne 3, puis changez à Père Lachaise. » Amir la remercie et regarde le quai indiqué.",
+    "ferramentaTitulo": "direction · quai · terminus · ligne interrompue",
+    "ferramenta": "La direction d'une ligne est indiquée par son terminus. « Trafic interrompu » signifie que les trains ne circulent pas sur une partie de la ligne. « Descendre à » indique la station de sortie.",
+    "atividades": [
+      {"tipo":"compréhension","pergunta":"Pourquoi Amir doit-il changer d'itinéraire ?","opcoes":["La station est fermée définitivement","La ligne 9 est partiellement interrompue","Il a perdu son ticket"],"correta":1,"explicacao":"La circulation est interrompue entre deux stations."},
+      {"tipo":"lexique","pergunta":"Complète : La dernière station d'une ligne est le ___.","respostas":["terminus"],"resposta":"terminus","explicacao":"Le terminus donne le nom de la direction du métro."},
+      {"tipo":"grammaire","pergunta":"Complète : Descendez ___ République et changez ___ ligne.","respostas":["à, de","à de"],"resposta":"à République et changez de ligne.","explicacao":"On descend à une station et on change de ligne."},
+      {"tipo":"médiation","pergunta":"Explique un itinéraire avec une correspondance.","instrucao":"Indique la ligne, la direction, la station de changement et la sortie.","modelo":"Prenez la ligne 4 direction Bagneux, changez à Châtelet pour la ligne 1 direction La Défense et descendez à Louvre-Rivoli.","checklist":["deux lignes","deux directions","station de correspondance"]},
+      {"tipo":"interaction","pergunta":"Demande si tu es sur le bon quai.","instrucao":"Précise ta destination et confirme la direction.","modelo":"Excusez-moi, c'est bien ce quai pour aller à Gare de Lyon ? Je dois prendre la direction Château de Vincennes ?","checklist":["formule polie","destination","direction"]},
+      {"tipo":"écoute","pergunta":"Escute e escreva o anúncio.","audio":"Attention, le trafic est interrompu sur la ligne douze.","respostas":["Attention le trafic est interrompu sur la ligne douze"],"resposta":"Attention, le trafic est interrompu sur la ligne douze.","explicacao":"Annonce fréquente en cas d'incident sur une ligne."},
+      {"tipo":"associations","pergunta":"Relie l'information à l'action.","pares":[["sortie 2","prendre la deuxième sortie"],["correspondance","changer de ligne"],["direction","regarder le terminus"],["quai","attendre le train"]]},
+      {"tipo":"traduction","pergunta":"Traduza: Em qual estação eu devo descer?","respostas":["À quelle station dois-je descendre","Je dois descendre à quelle station"],"resposta":"À quelle station dois-je descendre ?","explicacao":"« Devoir + infinitif » pergunta a ação necessária."},
+      {"tipo":"mission","pergunta":"Planeje um trajeto de metrô em Paris e peça confirmação.","instrucao":"Inclua linha, direção, troca e estação final.","modelo":"Je prends la ligne 1 direction La Défense, je change à Charles de Gaulle–Étoile et je prends la ligne 6. Je descends à Bir-Hakeim, c'est bien ça ?","checklist":["linha","direção","correspondência","confirmação"]}
+    ]
+  },
+  {
+    "id": "panneaux_rues",
+    "nivel": "Paris",
+    "tema": "panneaux · rues · espace public",
+    "titulo": "Lire les rues et les panneaux",
+    "documentoTitulo": "Autour de l'Hôtel de Ville",
+    "documento": "Maya marche dans Paris. Elle voit « Rue barrée », puis « Déviation piétons ». Au coin, une plaque indique « rue de Rivoli — 4e arrondissement ». Elle demande à un passant : « Le trottoir d'en face est accessible ? » Il répond : « Oui, traversez au passage piéton. Attention, cette rue est à sens unique et il y a des travaux. »",
+    "ferramentaTitulo": "rue · avenue · boulevard · quai · impasse",
+    "ferramenta": "Une rue est une voie urbaine; une avenue est souvent large; un boulevard est un grand axe; un quai longe généralement la Seine; une impasse n'a pas de sortie. Les plaques bleues donnent le nom de la voie et l'arrondissement.",
+    "atividades": [
+      {"tipo":"compréhension","pergunta":"Que doit faire Maya à cause de la rue barrée ?","opcoes":["Suivre la déviation piétons","Marcher sur la chaussée","Entrer dans l'impasse"],"correta":0,"explicacao":"Le panneau indique une déviation réservée aux piétons."},
+      {"tipo":"lexique","pergunta":"Complète : Une rue sans sortie est une ___.","respostas":["impasse"],"resposta":"impasse","explicacao":"Une impasse se termine sans déboucher sur une autre rue."},
+      {"tipo":"grammaire","pergunta":"Transforme en consigne : Vous traversez au passage piéton.","respostas":["Traversez au passage piéton"],"resposta":"Traversez au passage piéton.","explicacao":"L'impératif de vous supprime le pronom sujet."},
+      {"tipo":"médiation","pergunta":"Explique ces panneaux à un ami : sens interdit, travaux, sortie de secours.","instrucao":"Donne une action adaptée pour chaque panneau.","modelo":"« Sens interdit » : n'entre pas par cette rue. « Travaux » : ralentis et suis la déviation. « Sortie de secours » : garde le passage libre.","checklist":["trois panneaux","trois actions","phrases claires"]},
+      {"tipo":"interaction","pergunta":"Demande où commence une rue et si elle est loin.","instrucao":"Utilise un repère visible.","modelo":"Excusez-moi, où commence la rue Mouffetard ? C'est loin d'ici ? Est-ce près de la place ?","checklist":["nom de rue","distance","repère"]},
+      {"tipo":"écoute","pergunta":"Escute e escreva a indicação.","audio":"Traversez la place et prenez la deuxième rue à droite.","respostas":["Traversez la place et prenez la deuxième rue à droite"],"resposta":"Traversez la place et prenez la deuxième rue à droite.","explicacao":"« La deuxième rue » conta as ruas a partir do ponto atual."},
+      {"tipo":"associations","pergunta":"Relie la voie à sa description.","pares":[["un quai","longe la Seine"],["une impasse","n'a pas de sortie"],["un boulevard","grand axe urbain"],["un trottoir","espace pour les piétons"]]},
+      {"tipo":"traduction","pergunta":"Traduza: A rua está fechada por causa das obras.","respostas":["La rue est fermée à cause des travaux","La rue est barrée à cause des travaux"],"resposta":"La rue est fermée à cause des travaux.","explicacao":"« À cause de » introduz uma causa geralmente negativa."},
+      {"tipo":"mission","pergunta":"Você vê uma placa que não entende em Paris.","instrucao":"Leia a placa, peça explicação e confirme o que deve fazer.","modelo":"Excusez-moi, que signifie « accès interdit » ? Je dois passer par l'autre rue, c'est bien ça ?","checklist":["citar a placa","pedir significado","confirmar ação"]}
+    ]
+  },
+  {
+    "id": "boulangerie_cafe",
+    "nivel": "Paris",
+    "tema": "boulangerie · café · politesse",
+    "titulo": "À la boulangerie et au café",
+    "documentoTitulo": "Un petit-déjeuner au comptoir",
+    "documento": "Dans une boulangerie, Sofia attend son tour. Elle dit : « Bonjour, je vais vous prendre une tradition, deux croissants et un café allongé, s'il vous plaît. » La vendeuse demande : « Sur place ou à emporter ? » Sofia répond : « Sur place. Et je peux avoir un verre d'eau ? » Elle paie sans contact et dit au revoir avant de s'installer.",
+    "ferramentaTitulo": "je vais prendre · sur place · à emporter · l'addition",
+    "ferramenta": "À Paris, dire bonjour avant de commander est essentiel. « Je vais prendre » et « je voudrais » sont naturels. Au comptoir, on précise si l'on consomme sur place ou à emporter.",
+    "atividades": [
+      {"tipo":"compréhension","pergunta":"Où Sofia va-t-elle consommer ?","opcoes":["Dans la rue","Sur place","Dans le métro"],"correta":1,"explicacao":"Elle répond clairement « sur place »."},
+      {"tipo":"lexique","pergunta":"Complète : Un café moins fort avec plus d'eau est un café ___.","respostas":["allongé"],"resposta":"allongé","explicacao":"Un café allongé contient davantage d'eau qu'un expresso."},
+      {"tipo":"grammaire","pergunta":"Commande poliment une baguette avec vouloir.","respostas":["Je voudrais une baguette s'il vous plaît","Je voudrais une baguette"],"resposta":"Je voudrais une baguette, s'il vous plaît.","explicacao":"Le conditionnel « voudrais » adoucit la demande."},
+      {"tipo":"médiation","pergunta":"Explique à un ami comment commander dans une boulangerie parisienne.","instrucao":"Mentionne la salutation, la commande et le mode de consommation.","modelo":"Dis bonjour, commande avec « je voudrais », précise « sur place » ou « à emporter », puis remercie et dis au revoir.","checklist":["bonjour","commande polie","sur place/à emporter"]},
+      {"tipo":"interaction","pergunta":"Commande un petit-déjeuner et demande une alternative sans lait.","instrucao":"Demande aussi le prix.","modelo":"Bonjour, je voudrais un croissant et un café au lait d'avoine. Vous avez une option sans lait ? Ça fait combien, s'il vous plaît ?","checklist":["commande","besoin alimentaire","prix"]},
+      {"tipo":"écoute","pergunta":"Escute e escreva a pergunta.","audio":"Vous désirez autre chose ?","respostas":["Vous désirez autre chose"],"resposta":"Vous désirez autre chose ?","explicacao":"Pergunta usada pelo atendente antes de finalizar o pedido."},
+      {"tipo":"associations","pergunta":"Relie l'expression à la situation.","pares":[["sur place","consommer ici"],["à emporter","emportar o pedido"],["un café serré","café curto e forte"],["ça fait combien ?","perguntar o total"]]},
+      {"tipo":"traduction","pergunta":"Traduza: Eu posso pagar sem contato?","respostas":["Je peux payer sans contact","Est-ce que je peux payer sans contact"],"resposta":"Est-ce que je peux payer sans contact ?","explicacao":"« Payer sans contact » é pagar por aproximação."},
+      {"tipo":"mission","pergunta":"Faça um pedido completo num café parisiense.","instrucao":"Inclua saudação, bebida, comida, preferência e pagamento.","modelo":"Bonjour, je vais prendre un café crème et un pain au chocolat, sur place. Sans sucre, s'il vous plaît. Je peux payer par carte ?","checklist":["saudação","pedido","preferência","pagamento"]}
+    ]
+  },
+  {
+    "id": "achats_paiement",
+    "nivel": "Paris",
+    "tema": "boutiques · tailles · paiement",
+    "titulo": "Faire des achats",
+    "documentoTitulo": "Dans une boutique du Marais",
+    "documento": "Clara essaie une veste. Elle demande : « Vous l'avez en taille 38 ou dans une autre couleur ? » Le vendeur apporte un modèle bleu et précise : « Les cabines sont au fond. » Après l'essayage, Clara dit : « Elle me va bien, mais est-ce que je peux l'échanger si nécessaire ? » Le vendeur lui explique qu'elle doit garder le ticket de caisse.",
+    "ferramentaTitulo": "taille · cabine · ticket de caisse · échange",
+    "ferramenta": "« Je fais du 38 » indique la taille. « Ça me va » parle de la coupe. Pour un échange ou un remboursement, demandez les conditions et gardez le ticket de caisse.",
+    "atividades": [
+      {"tipo":"compréhension","pergunta":"Que doit garder Clara pour échanger la veste ?","opcoes":["L'étiquette du prix seulement","Le ticket de caisse","Le sac du magasin"],"correta":1,"explicacao":"Le vendeur demande de conserver le ticket de caisse."},
+      {"tipo":"lexique","pergunta":"Complète : Où sont les cabines d'___ ?","respostas":["essayage"],"resposta":"essayage","explicacao":"La cabine d'essayage est l'endroit où l'on essaie un vêtement."},
+      {"tipo":"grammaire","pergunta":"Remplace la veste par un pronom : Vous avez la veste en bleu ?","respostas":["Vous l'avez en bleu"],"resposta":"Vous l'avez en bleu ?","explicacao":"Le pronom COD féminin « la » devient « l' » devant une voyelle."},
+      {"tipo":"médiation","pergunta":"Explique les conditions d'échange à un ami.","instrucao":"Mentionne délai, état du produit et justificatif.","modelo":"Tu peux échanger l'article sous trente jours s'il n'a pas été porté. Garde l'étiquette et le ticket de caisse.","checklist":["délai","état du produit","ticket"]},
+      {"tipo":"interaction","pergunta":"Demande une autre taille et essaie de résoudre un problème de prix.","instrucao":"Reste poli et précis.","modelo":"Excusez-moi, vous avez ce pantalon en taille 40 ? Le prix affiché en rayon était différent : pourriez-vous vérifier ?","checklist":["taille","problème de prix","demande polie"]},
+      {"tipo":"écoute","pergunta":"Escute e escreva a frase.","audio":"Vous pouvez l'échanger sous trente jours avec le ticket.","respostas":["Vous pouvez l'échanger sous trente jours avec le ticket"],"resposta":"Vous pouvez l'échanger sous trente jours avec le ticket.","explicacao":"« Sous trente jours » indica o prazo máximo."},
+      {"tipo":"associations","pergunta":"Relie chaque terme à son usage.","pares":[["une taille","medida da roupa"],["une cabine","local para provar"],["un reçu","comprovante"],["un remboursement","devolução do dinheiro"]]},
+      {"tipo":"traduction","pergunta":"Traduza: Posso experimentar este casaco?","respostas":["Est-ce que je peux essayer ce manteau","Je peux essayer ce manteau"],"resposta":"Est-ce que je peux essayer ce manteau ?","explicacao":"« Essayer » significa experimentar uma roupa."},
+      {"tipo":"mission","pergunta":"Compre uma roupa e tire três dúvidas antes de pagar.","instrucao":"Pergunte tamanho, provador e troca.","modelo":"Vous avez cette chemise en taille M ? Où sont les cabines d'essayage ? Et est-ce que je peux l'échanger si elle ne va pas ?","checklist":["taille","cabine","échange"]}
+    ]
+  },
+  {
+    "id": "musees_monuments",
+    "nivel": "Paris",
+    "tema": "visites · billets · horaires",
+    "titulo": "Visiter les musées et monuments",
+    "documentoTitulo": "Une visite au musée",
+    "documento": "Devant un musée, Lucas montre sa réservation. L'agente lui dit : « Votre créneau est à 15 heures. L'entrée se trouve sous la pyramide et les grands sacs doivent rester au vestiaire. » Lucas demande : « Est-ce que les photos sans flash sont autorisées ? » Elle répond : « Oui, sauf dans les salles signalées. Le musée ferme à 18 heures, mais l'évacuation commence à 17h30. »",
+    "ferramentaTitulo": "créneau · vestiaire · plein tarif · tarif réduit",
+    "ferramenta": "Un créneau est une heure de visite réservée. Le plein tarif est le prix normal; le tarif réduit concerne certains publics. « Sauf » introduit une exception.",
+    "atividades": [
+      {"tipo":"compréhension","pergunta":"À quelle heure commence l'évacuation ?","opcoes":["À 15 heures","À 17h30","À 18h30"],"correta":1,"explicacao":"Le musée ferme à 18 heures mais l'évacuation commence trente minutes avant."},
+      {"tipo":"lexique","pergunta":"Complète : Je dois laisser mon sac au ___.","respostas":["vestiaire"],"resposta":"vestiaire","explicacao":"Le vestiaire garde les sacs et manteaux pendant la visite."},
+      {"tipo":"grammaire","pergunta":"Exprime l'exception : Les photos sont autorisées, pas dans cette salle.","respostas":["Les photos sont autorisées sauf dans cette salle"],"resposta":"Les photos sont autorisées, sauf dans cette salle.","explicacao":"« Sauf » exclut un élément de la règle générale."},
+      {"tipo":"médiation","pergunta":"Résume les règles du musée à ton groupe.","instrucao":"Mentionne sacs, photos et heure de fermeture.","modelo":"Laissez les grands sacs au vestiaire. Les photos sans flash sont autorisées sauf indication contraire. Revenez vers la sortie avant 17h30.","checklist":["sacs","photos","horaire"]},
+      {"tipo":"interaction","pergunta":"Achète un billet et demande les conditions de visite.","instrucao":"Demande tarif, durée et accès.","modelo":"Bonjour, je voudrais un billet pour aujourd'hui. Y a-t-il un tarif réduit ? Combien de temps dure la visite et où se trouve l'entrée ?","checklist":["billet","tarif","durée ou entrée"]},
+      {"tipo":"écoute","pergunta":"Escute e escreva a regra.","audio":"Les photos sont autorisées, mais sans flash.","respostas":["Les photos sont autorisées mais sans flash"],"resposta":"Les photos sont autorisées, mais sans flash.","explicacao":"« Sans flash » indica a restrição aplicável às fotos."},
+      {"tipo":"associations","pergunta":"Relie le mot à sa définition.","pares":[["un créneau","horário reservado"],["le vestiaire","guarda-volumes"],["le tarif réduit","preço com desconto"],["complet","sem vagas"]]},
+      {"tipo":"traduction","pergunta":"Traduza: Ainda há ingressos para hoje?","respostas":["Il reste des billets pour aujourd'hui","Est-ce qu'il reste des billets pour aujourd'hui"],"resposta":"Est-ce qu'il reste des billets pour aujourd'hui ?","explicacao":"« Il reste » pergunta o que ainda está disponível."},
+      {"tipo":"mission","pergunta":"Organize uma visita a um monument de Paris.","instrucao":"Pergunte horário, ingresso, fila e acessibilidade.","modelo":"Bonjour, quels sont les horaires aujourd'hui ? Faut-il réserver un créneau ? Où commence la file et l'accès est-il adapté aux personnes à mobilité réduite ?","checklist":["horário","reserva","fila","acessibilidade"]}
+    ]
+  },
+  {
+    "id": "pharmacie_sante",
+    "nivel": "Paris",
+    "tema": "pharmacie · symptômes · soins",
+    "titulo": "À la pharmacie",
+    "documentoTitulo": "Demander conseil au pharmacien",
+    "documento": "Emma entre dans une pharmacie et dit : « Bonjour, j'ai mal à la gorge et je tousse depuis hier. Je n'ai pas de fièvre. Qu'est-ce que vous me conseillez ? » Le pharmacien demande : « Vous avez des allergies ou un traitement en cours ? » Emma répond que non. Il lui explique la dose et ajoute : « Si les symptômes s'aggravent, consultez un médecin. »",
+    "ferramentaTitulo": "j'ai mal à · depuis · ordonnance · dose",
+    "ferramenta": "Pour décrire un symptôme, utilisez « j'ai mal à », « je tousse » ou « j'ai de la fièvre ». « Depuis » indique le début d'un état qui continue. Signalez toujours allergies et traitements.",
+    "atividades": [
+      {"tipo":"compréhension","pergunta":"Depuis quand Emma tousse-t-elle ?","opcoes":["Depuis une semaine","Depuis hier","Depuis ce matin seulement"],"correta":1,"explicacao":"Emma dit qu'elle tousse depuis hier."},
+      {"tipo":"lexique","pergunta":"Complète : Pour certains médicaments, il faut une ___.","respostas":["ordonnance"],"resposta":"ordonnance","explicacao":"Une ordonnance est la prescription écrite par un médecin."},
+      {"tipo":"grammaire","pergunta":"Complète avec depuis : Je suis malade ___ deux jours.","respostas":["depuis"],"resposta":"depuis","explicacao":"« Depuis » accompagne une durée qui continue au présent."},
+      {"tipo":"médiation","pergunta":"Explique les symptômes d'un ami au pharmacien.","instrucao":"Précise durée, intensité et allergies.","modelo":"Il a mal au ventre depuis ce matin. La douleur est assez forte et il est allergique à l'aspirine.","checklist":["symptôme","durée","allergie"]},
+      {"tipo":"interaction","pergunta":"Demande un conseil et vérifie comment prendre le médicament.","instrucao":"Pose au moins trois questions.","modelo":"Qu'est-ce que vous me conseillez ? Combien de fois par jour dois-je le prendre ? Avant ou après le repas ? Y a-t-il des effets secondaires ?","checklist":["conseil","dose","moment de prise"]},
+      {"tipo":"écoute","pergunta":"Escute e escreva a recomendação.","audio":"Prenez un comprimé matin et soir après le repas.","respostas":["Prenez un comprimé matin et soir après le repas"],"resposta":"Prenez un comprimé matin et soir après le repas.","explicacao":"A frase informa dose, frequência e momento."},
+      {"tipo":"associations","pergunta":"Relie le symptôme à la partie du corps.","pares":[["mal à la gorge","garganta"],["mal au ventre","barriga"],["mal à la tête","cabeça"],["mal au dos","costas"]]},
+      {"tipo":"traduction","pergunta":"Traduza: Sou alérgica a este medicamento.","respostas":["Je suis allergique à ce médicament"],"resposta":"Je suis allergique à ce médicament.","explicacao":"Allergique concorda com o gênero da pessoa: allergique é invariável na escrita."},
+      {"tipo":"mission","pergunta":"Explique um problema de saúde numa farmácia.","instrucao":"Descreva sintomas e confirme como usar o produto.","modelo":"Bonjour, j'ai les yeux irrités depuis deux jours. Je ne prends aucun traitement. Ce produit convient-il ? Comment dois-je l'utiliser ?","checklist":["sintoma","duração","tratamento atual","modo de uso"]}
+    ]
+  },
+  {
+    "id": "urgence_problemes",
+    "nivel": "Paris",
+    "tema": "urgence · vol · objets perdus",
+    "titulo": "En cas de problème",
+    "documentoTitulo": "Un portefeuille disparu",
+    "documento": "Dans un café, Diego remarque que son portefeuille a disparu. Il dit au serveur : « Excusez-moi, je pense qu'on m'a volé mon portefeuille. Est-ce que quelqu'un l'a rapporté ? » Le serveur répond que non et lui conseille de faire opposition à sa carte, puis de signaler le vol au commissariat. Diego demande l'adresse du poste de police le plus proche.",
+    "ferramentaTitulo": "j'ai perdu · on m'a volé · appeler les secours · commissariat",
+    "ferramenta": "Distinguez « j'ai perdu » d'« on m'a volé ». En France, le 112 est le numéro d'urgence européen, le 15 le SAMU, le 17 la police et le 18 les pompiers.",
+    "atividades": [
+      {"tipo":"compréhension","pergunta":"Que doit faire Diego pour protéger son argent ?","opcoes":["Acheter un autre portefeuille","Faire opposition à sa carte","Retourner à l'hôtel"],"correta":1,"explicacao":"Faire opposition bloque rapidement la carte bancaire."},
+      {"tipo":"lexique","pergunta":"Complète : Pour déclarer un vol, je vais au ___.","respostas":["commissariat"],"resposta":"commissariat","explicacao":"Le commissariat est le poste de police."},
+      {"tipo":"grammaire","pergunta":"Transforme avec un pronom : Quelqu'un a volé mon téléphone.","respostas":["On m'a volé mon téléphone","Quelqu'un m'a volé mon téléphone"],"resposta":"On m'a volé mon téléphone.","explicacao":"Le pronom « me/m' » indique la personne victime du vol."},
+      {"tipo":"médiation","pergunta":"Explique à un agent ce qui est arrivé à ton ami.","instrucao":"Indique objet, lieu, heure et description.","modelo":"Mon ami a perdu son sac vers 16 heures dans le métro à Châtelet. Il est noir avec une étiquette rouge et contient ses papiers.","checklist":["objet","lieu","heure","description"]},
+      {"tipo":"interaction","pergunta":"Signale un objet perdu et demande la procédure.","instrucao":"Demande où déclarer la perte et quoi fournir.","modelo":"Bonjour, j'ai perdu mon passeport. Où dois-je déclarer la perte ? Quels documents ou informations dois-je fournir ?","checklist":["objet perdu","procédure","documents"]},
+      {"tipo":"écoute","pergunta":"Escute e escreva a instrução.","audio":"En cas d'urgence, appelez immédiatement le cent douze.","respostas":["En cas d'urgence appelez immédiatement le cent douze"],"resposta":"En cas d'urgence, appelez immédiatement le 112.","explicacao":"112 é o número europeu de emergência."},
+      {"tipo":"associations","pergunta":"Relie le numéro au service.","pares":[["15","SAMU"],["17","police"],["18","pompiers"],["112","urgence européenne"]]},
+      {"tipo":"traduction","pergunta":"Traduza: Preciso de ajuda, minha bolsa foi roubada.","respostas":["J'ai besoin d'aide on m'a volé mon sac","J'ai besoin d'aide mon sac a été volé"],"resposta":"J'ai besoin d'aide, on m'a volé mon sac.","explicacao":"« On m'a volé » é uma forma natural de relatar furto."},
+      {"tipo":"mission","pergunta":"Resolva uma emergência durante a viagem.","instrucao":"Peça ajuda, explique o problema e dê localização exata.","modelo":"Bonjour, j'ai besoin d'aide. Une personne est tombée et ne répond pas. Nous sommes devant le 20, boulevard Saint-Michel. Pouvez-vous envoyer les secours ?","checklist":["pedido de ajuda","problema","endereço","estado da pessoa"]}
+    ]
+  },
+  {
+    "id": "parler_parisiens",
+    "nivel": "Paris",
+    "tema": "conversation · politesse · compréhension",
+    "titulo": "Parler avec les Parisiens",
+    "documentoTitulo": "Quand on parle trop vite",
+    "documento": "Dans une librairie, Ana demande un conseil. Le libraire répond rapidement et elle ne comprend pas tout. Ana dit : « Pardon, je suis en train d'apprendre le français. Vous pourriez parler un peu moins vite ? » Il reformule avec gentillesse. Ana vérifie : « Si j'ai bien compris, ce livre est plus facile et l'autre est plus complet, c'est ça ? » Le libraire confirme et poursuit la conversation.",
+    "ferramentaTitulo": "pardon · pourriez-vous répéter · si j'ai bien compris",
+    "ferramenta": "On peut demander de ralentir, de répéter ou de reformuler sans gêne. Commencez par bonjour, utilisez vous avec les inconnus et terminez par merci, bonne journée ou au revoir.",
+    "atividades": [
+      {"tipo":"compréhension","pergunta":"Comment Ana vérifie-t-elle sa compréhension ?","opcoes":["Elle change de sujet","Elle reformule ce qu'elle a compris","Elle répond seulement oui"],"correta":1,"explicacao":"Elle résume l'information puis demande confirmation."},
+      {"tipo":"lexique","pergunta":"Complète : Vous pourriez parler un peu moins ___ ?","respostas":["vite"],"resposta":"vite","explicacao":"« Moins vite » demande à la personne de ralentir."},
+      {"tipo":"grammaire","pergunta":"Rends la demande plus polie : Répétez.","respostas":["Vous pourriez répéter s'il vous plaît","Pourriez-vous répéter s'il vous plaît"],"resposta":"Pourriez-vous répéter, s'il vous plaît ?","explicacao":"Le conditionnel rend la demande moins directe."},
+      {"tipo":"médiation","pergunta":"Reformule une information complexe en français simple.","instrucao":"Commence par « Si j'ai bien compris ».","modelo":"Si j'ai bien compris, le magasin ferme plus tôt aujourd'hui et je dois revenir demain pour récupérer ma commande.","checklist":["formule de vérification","idée principale","phrase simple"]},
+      {"tipo":"interaction","pergunta":"Maintiens une conversation quand tu ne comprends pas.","instrucao":"Demande de répéter, précise le mot difficile et confirme.","modelo":"Pardon, pourriez-vous répéter ? Je n'ai pas compris le mot après « réservation ». Vous voulez dire que je dois confirmer aujourd'hui, c'est ça ?","checklist":["demande de répétition","mot ciblé","confirmation"]},
+      {"tipo":"écoute","pergunta":"Escute e escreva a frase.","audio":"Si j'ai bien compris, je dois revenir demain, c'est ça ?","respostas":["Si j'ai bien compris je dois revenir demain c'est ça"],"resposta":"Si j'ai bien compris, je dois revenir demain, c'est ça ?","explicacao":"Estrutura útil para confirmar informações importantes."},
+      {"tipo":"associations","pergunta":"Relie la formule à son intention.","pares":[["Pardon ?","signal de non-compréhension"],["Vous pouvez répéter ?","pedir repetição"],["Comment dit-on… ?","pedir uma palavra"],["C'est ça ?","pedir confirmação"]]},
+      {"tipo":"traduction","pergunta":"Traduza: Desculpe, ainda não falo francês muito bem.","respostas":["Désolé je ne parle pas encore très bien français","Désolée je ne parle pas encore très bien français"],"resposta":"Désolé, je ne parle pas encore très bien français.","explicacao":"« Pas encore » significa ainda não."},
+      {"tipo":"mission","pergunta":"Inicie e mantenha uma conversa curta em Paris.","instrucao":"Cumprimente, faça uma pergunta, peça esclarecimento e encerre com educação.","modelo":"Bonjour, vous connaissez un café calme dans le quartier ? Pardon, vous avez dit « au coin de la rue » ? D'accord, j'ai compris. Merci beaucoup et bonne journée !","checklist":["saudação","pergunta","esclarecimento","despedida"]}
+    ]
+  }
+]
